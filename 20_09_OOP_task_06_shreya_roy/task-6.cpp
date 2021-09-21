@@ -2,101 +2,111 @@
 using namespace std;
 class personal 
 {
-    //protected:
-    public:
+    protected:
     string Name, Surname , address;
     long  mobile_no, dob;
-    personal()
+    public:
+    void get_personal()
     {
-    Name = "null", Surname = "null", address="null";
-    mobile_no =0L, dob=0L;
-    }
-    personal1(string n, string sn, string a, long m, long d){
-        Name = n;
-        Surname = sn;
-        address = a;
-        mobile_no = m;
-        dob = d;
+        cout<<"\nEnter Name:";
+        cin >> Name;
+
+        cout<<"\nEnter Surname:";
+        cin >> Surname;
+
+        cout<<"\nEnter address:";
+        cin >> address;
+
+        cout<<"\nEnter Mobile Number:";
+        cin >> mobile_no;
+
+        cout<<"\nEnter DOB:";
+        cin >> dob;
     }
     void print_personal()
     {
-        cout<<"Name : " << Name;
-        cout<<"Surname : " << Surname;
-        cout<<"Address : " << address;
-        cout<<"Mobile Number : " << mobile_no;
-        cout<<"Date of Birth : " << dob;
+        cout<<"Name : " << Name<< endl;
+        cout<<"Surname : " << Surname<< endl;
+        cout<<"Address : " << address<< endl;
+        cout<<"Mobile Number : " << mobile_no<< endl;
+        cout<<"Date of Birth : " << dob<< endl;
     }
 };
 
 class professional 
 {
-    //protected:
-    public:
-    string Name_of_org, job_profile , project;    
-    professional()
+    protected:
+    string Name_of_org, job_profile , project;
+    public:    
+    void get_professional()
     {
-    Name_of_org = "null", job_profile = "null", project="null";    
-    }
-    professional1(string n1, string jp1, string p1){
-        Name_of_org = n1;
-        job_profile = jp1;
-        project = p1;
+        cout<<"\nEnter Name of the organization:";
+        cin >> Name_of_org;
+
+        cout<<"\nEnter Job Profile:";
+        cin >> job_profile;
+
+        cout<<"\nEnter Project:";
+        cin >> project;
     }
     void print_professional()
     {
-        cout<<"Name of organization : " << Name_of_org;
-        cout<<"Job Profile : " << job_profile;
-        cout<<"Project : " << project;
+        cout<<"Name of organization : " << Name_of_org<< endl;
+        cout<<"Job Profile : " << job_profile<< endl;
+        cout<<"Project : " << project<< endl;
     }
     
 };
 class academic
 {
-    //protected:
-    public:
+    protected:
     int year_of_passing, cgpa;
-    string college_name ="null", branch="null";     
-    academic()
-    {
-    year_of_passing = 0, cgpa = 0;
-    college_name ="null", branch ="null";        
-    }
-    academic1(string cn1, string b1, int y1, int c2){
-        college_name = cn1;
-        branch = b1;
-        year_of_passing = y1;
-        cgpa = c2;
+    string college_name , branch;     
+    public:
+    void get_academic(){
+        cout<<"\nEnter Year of passing:";
+        cin >> year_of_passing;
+
+        cout<<"\nEnter CGPA:";
+        cin >> cgpa;
+
+        cout<<"\nEnter the college name:";
+        cin >> college_name;
+
+        cout<<"\nEnter Branch:";
+        cin >> branch;
     }
     void print_academic()
     {
-        cout<<"College Name : " << college_name;
-        cout<<"Branch : " << branch;
-        cout<<"Year of Passing : " << year_of_passing;
-        cout<<"Cgpa : " << cgpa;
+        cout<<"College Name : " << college_name<< endl;
+        cout<<"Branch : " << branch<< endl;
+        cout<<"Year of Passing : " << year_of_passing<< endl;
+        cout<<"Cgpa : " << cgpa<< endl;
     }    
 };
 class biodata : public personal , public professional , public academic
 { public:
-    biodata()
+    personal obj;
+    void getBioData()
     {
-
+    printf("\nEnter Biodata\n");
+        obj.get_personal();
+        get_professional();
+        get_academic(); 
     }
-    public void print_details()
+    void showBioData()
     {
-        personal r;
-        personal pr1 ("Shreya", "Roy", "Kolkata", 1419, 2604);
-        pr1.print_personal();
-        professional r2;
-        professional pr2 ("TRF", "Mentee", "OOPs");
-        pr2.print_professional();
-        academic pr3 ("Vit", "E&TC", 2024, 9);
-        pr3.print_academic();
+        printf("\n\nBiodata\n");
+        print_personal();
+        print_professional();
+        print_academic();
     }
 };
 int main()
 {
     biodata b;
-    b.print_details();   
-cout<<123;
+    b.getBioData();
+    b.showBioData();
+    return 0;;
 return 0;
 }
